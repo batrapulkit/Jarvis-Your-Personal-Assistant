@@ -4,7 +4,6 @@ import speech_recognition as sr
 import wikipedia
 import requests
 from PIL import Image
-import pyautogui
 
 # Initialize the pyttsx3 engine
 engine = pyttsx3.init()
@@ -60,12 +59,6 @@ def get_weather(city):
     else:
         return "City not found."
 
-# Function for taking a screenshot
-def take_screenshot():
-    # Takes screenshot and saves as 'screenshot.png'
-    screenshot = pyautogui.screenshot()
-    screenshot.save('screenshot.png')
-
 # Main Streamlit interface
 st.title("Jarvis - Your Personal Assistant")
 st.write("Hello, I am Jarvis. How can I assist you today?")
@@ -87,10 +80,6 @@ if st.button("Start Voice Interaction"):
             weather_info = get_weather(city)
             st.write(weather_info)
             speak(weather_info)
-        elif "screenshot" in command.lower():
-            take_screenshot()
-            st.write("Screenshot taken and saved as 'screenshot.png'.")
-            speak("Screenshot taken successfully.")
         else:
             response = "Sorry, I didn't understand the command."
             st.write(response)
