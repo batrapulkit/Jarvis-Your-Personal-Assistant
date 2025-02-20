@@ -29,8 +29,8 @@ Jarvis is an intelligent voice assistant that helps you automate tasks, access i
    ```bash
    git clone https://github.com/your-username/jarvis.git
 ```
-2. ```bash
-python jarvis.py
+```bash
+2. python jarvis.py
 ```
 
 ## 🌱 Contributing
@@ -38,4 +38,5 @@ We welcome contributions to make Jarvis smarter and more feature-rich. Feel free
 
 ## 📧 Contact
 If you have any questions or suggestions, feel free to reach out via email or create an issue on GitHub.
+batrapulkit1103@gmail.com
 
