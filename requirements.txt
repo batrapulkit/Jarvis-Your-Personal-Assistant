@@ -12,3 +12,4 @@ markdown-it-py
 mdurl
 pygments
 gTTS
+comtypes
