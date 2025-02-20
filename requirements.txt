@@ -1,4 +1,4 @@
-pyttsx3
+gTTS
 speechrecognition
 wikipedia
 requests
@@ -11,5 +11,3 @@ rich
 markdown-it-py
 mdurl
 pygments
-gTTS
-comtypes
