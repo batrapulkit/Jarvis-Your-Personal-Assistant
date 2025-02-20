@@ -1,8 +1,14 @@
 pyttsx3
-wikipedia
 speechrecognition
+wikipedia
 requests
-PyDictionary
+selenium
+webdriver-manager
+Pillow
 opencv-python
-tkinter
 streamlit
+pyttsx3
+rich
+markdown-it-py
+mdurl
+pygments
