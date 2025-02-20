@@ -7,7 +7,6 @@ webdriver-manager
 Pillow
 opencv-python
 streamlit
-pyttsx3
 rich
 markdown-it-py
 mdurl
