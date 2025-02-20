@@ -5,3 +5,4 @@ requests
 PyDictionary
 opencv-python
 tkinter
+streamlit
