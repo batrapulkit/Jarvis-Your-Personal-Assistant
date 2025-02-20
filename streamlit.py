@@ -3,12 +3,8 @@ import pyttsx3
 import speech_recognition as sr
 import wikipedia
 import requests
-import selenium
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from PIL import Image
-import cv2
-import os
+import pyautogui
 
 # Initialize the pyttsx3 engine
 engine = pyttsx3.init()
@@ -100,21 +96,17 @@ if st.button("Start Voice Interaction"):
             st.write(response)
             speak(response)
 
-# Upload an image for OpenCV processing
-st.write("Upload an image to perform OpenCV operations:")
+# Upload an image for PIL (Pillow) processing
+st.write("Upload an image to perform basic operations:")
 image_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 if image_file is not None:
     # Open the uploaded image
     image = Image.open(image_file)
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    # Convert the image to an OpenCV format
-    img_array = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-
-    # Display basic OpenCV operations
-    st.write("Displaying grayscale image:")
-    gray_img = cv2.cvtColor(img_array, cv2.COLOR_BGR2GRAY)
-    st.image(gray_img, caption="Grayscale Image", use_column_width=True)
+    # Convert the image to grayscale (using Pillow)
+    gray_image = image.convert("L")
+    st.image(gray_image, caption="Grayscale Image", use_column_width=True)
 
     speak("I have processed the image and converted it to grayscale.")
 
