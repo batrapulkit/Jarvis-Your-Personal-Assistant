@@ -1,0 +1,7 @@
+pyttsx3
+wikipedia
+speechrecognition
+requests
+PyDictionary
+opencv-python
+tkinter
