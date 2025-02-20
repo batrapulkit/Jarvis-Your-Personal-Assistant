@@ -15,11 +15,9 @@ Jarvis is an intelligent voice assistant that helps you automate tasks, access i
 ---
 
 ## 🛠️ Technologies Used
-
-- **Frontend**: React.js / Vue.js for dynamic, responsive UI.
+- **Python**
 - **Speech Recognition**: Web Speech API or custom voice recognition for seamless interaction.
 - **NLP**: Integrates with natural language processing to understand and process commands.
-- **Styling**: CSS, styled-components for a modern, polished look.
 
 ---
 
