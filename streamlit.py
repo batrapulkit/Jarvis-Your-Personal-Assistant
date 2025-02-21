@@ -1,26 +1,7 @@
 import streamlit as st
-import speech_recognition as sr
 import wikipedia
 import requests
 from PIL import Image
-
-# Function to recognize speech
-def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Say something...")
-        audio = recognizer.listen(source)
-        try:
-            print("Recognizing...")
-            command = recognizer.recognize_google(audio)
-            print(f"Command: {command}")
-            return command
-        except sr.UnknownValueError:
-            print("Sorry, I could not understand that.")
-            return None
-        except sr.RequestError:
-            print("Sorry, I couldn't reach the Google API.")
-            return None
 
 # Function for Wikipedia search
 def search_wikipedia(query):
@@ -50,24 +31,24 @@ def get_weather(city):
 st.title("Jarvis - Your Personal Assistant")
 st.write("Hello, I am Jarvis. How can I assist you today?")
 
-# Speech input option
-if st.button("Start Voice Interaction"):
-    command = recognize_speech()
-    if command:
-        st.write(f"You said: {command}")
-        
-        # Processing commands
-        if "wikipedia" in command.lower():
-            query = command.replace("wikipedia", "")
-            result = search_wikipedia(query)
-            st.write(result)
-        elif "weather" in command.lower():
-            city = command.replace("weather", "").strip()
-            weather_info = get_weather(city)
-            st.write(weather_info)
-        else:
-            response = "Sorry, I didn't understand the command."
-            st.write(response)
+# Text input option for user command
+command = st.text_input("Enter your command:")
+
+if command:
+    st.write(f"You entered: {command}")
+    
+    # Processing commands
+    if "wikipedia" in command.lower():
+        query = command.replace("wikipedia", "").strip()
+        result = search_wikipedia(query)
+        st.write(result)
+    elif "weather" in command.lower():
+        city = command.replace("weather", "").strip()
+        weather_info = get_weather(city)
+        st.write(weather_info)
+    else:
+        response = "Sorry, I didn't understand the command."
+        st.write(response)
 
 # Upload an image for PIL (Pillow) processing
 st.write("Upload an image to perform basic operations:")
