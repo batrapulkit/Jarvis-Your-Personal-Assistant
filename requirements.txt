@@ -2,9 +2,5 @@ pyttsx3
 speechrecognition
 wikipedia
 requests
-selenium
-webdriver-manager
 Pillow
-opencv-python
 streamlit
-pyautogui
