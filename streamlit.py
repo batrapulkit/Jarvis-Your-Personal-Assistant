@@ -1,21 +1,8 @@
 import streamlit as st
-import pyttsx3
 import speech_recognition as sr
 import wikipedia
 import requests
 from PIL import Image
-
-# Initialize the pyttsx3 engine
-engine = pyttsx3.init()
-
-# Set up voice property
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)  # Change to your desired voice index
-
-# Function for text-to-speech
-def speak(text):
-    engine.say(text)
-    engine.runAndWait()
 
 # Function to recognize speech
 def recognize_speech():
@@ -67,23 +54,20 @@ st.write("Hello, I am Jarvis. How can I assist you today?")
 if st.button("Start Voice Interaction"):
     command = recognize_speech()
     if command:
-        speak(f"You said: {command}")
+        st.write(f"You said: {command}")
         
         # Processing commands
         if "wikipedia" in command.lower():
             query = command.replace("wikipedia", "")
             result = search_wikipedia(query)
             st.write(result)
-            speak(result)
         elif "weather" in command.lower():
             city = command.replace("weather", "").strip()
             weather_info = get_weather(city)
             st.write(weather_info)
-            speak(weather_info)
         else:
             response = "Sorry, I didn't understand the command."
             st.write(response)
-            speak(response)
 
 # Upload an image for PIL (Pillow) processing
 st.write("Upload an image to perform basic operations:")
@@ -96,12 +80,3 @@ if image_file is not None:
     # Convert the image to grayscale (using Pillow)
     gray_image = image.convert("L")
     st.image(gray_image, caption="Grayscale Image", use_column_width=True)
-
-    speak("I have processed the image and converted it to grayscale.")
-
-# Simple text-to-speech input/output
-st.text_input("Enter text to hear it spoken:", key="text_input")
-if st.session_state.text_input:
-    text = st.session_state.text_input
-    speak(text)
-    st.write(f"Text: {text}")
